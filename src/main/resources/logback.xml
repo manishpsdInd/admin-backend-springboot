@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<include
+		resource="org/springframework/boot/logging/logback/base.xml" />
+	<springProfile name="default,dev,stage">
+		<logger name="com.example.demo.controller.EmployeeController"
+			level="DEBUG" additivity="false">
+			<appender-ref ref="CONSOLE" />
+		</logger>
+		>
+	</springProfile>
+	<springProfile name="production">
+		<logger name="com.example.demo.controller.EmployeeController" 
+		level="DEBUG" additivity="false">
+			<appender-ref ref="FILE" />
+		</logger>
+	</springProfile>
+	<springProfile name="preStage">
+		<logger name="com.example.demo.controller.EmployeeController"
+			level="DEBUG" additivity="false">
+			<appender-ref ref="FILE" />
+		</logger>
+	</springProfile>
+</configuration>

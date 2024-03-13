@@ -13,3 +13,6 @@ Update: `none` to `create` in ddl-auto in application.proerties
 
 `spring.jpa.hibernate.ddl-auto=create`
 
+
+Swagger URL (with default port 8080):
+http://localhost:8080/api/v1/swagger-ui/index.html

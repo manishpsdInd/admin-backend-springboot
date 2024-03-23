@@ -30,6 +30,7 @@ dependencies {
 
 	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'org.postgresql:postgresql'
+	runtimeOnly group: 'com.microsoft.sqlserver', name: 'mssql-jdbc', version: '12.6.1.jre11'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 

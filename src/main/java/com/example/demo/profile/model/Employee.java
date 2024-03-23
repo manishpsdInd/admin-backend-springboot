@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.example.demo.profile.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -47,12 +47,12 @@ public class Employee	{
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getFirstName() {
 		return firstName;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public void setFirstName(String firstName) {

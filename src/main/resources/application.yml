@@ -1,0 +1,76 @@
+spring:
+    profiles:
+        active: postgres
+    application:
+        name: admin-backend-springboot
+    devtools:
+        add-properties: false
+    jpa:
+        hibernate:
+            ddl-auto: create
+            format_sql: true
+        generate-ddl: true
+        show-sql: true
+logging:
+    level:
+        web: DEBUG
+server:
+    error:
+        include-stacktrace: never
+    port: 8080
+springdoc:
+    api-docs:
+        path: /api/v1/employees-api-docs
+    swagger-ui:
+        path: /api/v1/
+
+---
+spring.config.activate.on-profile: h2db
+spring:            
+    datasource:
+        password: admin
+        url: jdbc:h2:mem:basic_db
+        username: admin
+        driverClassName: org.h2.Driver
+    h2:
+        console:
+            path: /h2-console
+            settings.trace: false
+            settings.web-allow-others: false
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.H2Dialect
+                hbm2ddl:
+                    import_files: classpath:/sql/import_2.sql
+---
+spring.config.activate.on-profile: mssql
+spring:            
+    datasource:
+        password: root
+        url: jdbc:sqlserver://localhost:1433;databaseName=basic_db
+        username: mssql2
+        driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    jpa:
+        generate-ddl: true
+        #database-platform: org.hibernate.dialect.SQLServerDialect
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.SQLServerDialect
+                #dialect: org.hibernate.dialect.SQLServer2022Dialect
+                hbm2ddl:
+                    import_files: classpath:/sql/import_2.sql
+---
+spring.config.activate.on-profile: postgres
+spring:            
+    datasource:
+        password: root
+        url: jdbc:mssql://localhost:5432/basic_db?useSSL=false
+        username: postgres
+    jpa:
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                hbm2ddl:
+                    import_files: classpath:/sql/import_2.sql
+---

@@ -1,9 +1,10 @@
-package com.example.demo.controller;
+package com.example.demo.profile.controller;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.example.demo.profile.model.Employee;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.exception.ResourceAlreadyExists;
-import com.example.demo.exception.ResourceNotFound;
-import com.example.demo.model.Employee;
-import com.example.demo.repository.EmployeeRepository;
+import com.example.demo.profile.exception.ResourceAlreadyExists;
+import com.example.demo.profile.exception.ResourceNotFound;
+import com.example.demo.profile.repository.EmployeeRepository;
 
 @RestController
 @RequestMapping("/api/v1")
